@@ -1,0 +1,18 @@
+let
+   folder = "C:\Users\USER\Desktop\CURSOS\BOOTCAMP\B_PBI_202409\data/",
+    archivo = "customer.csv",
+
+    ruta = folder & archivo,
+
+    fuente = Csv.Document(File.Contents(ruta) ),
+
+    data = Table.PromoteHeaders(fuente),
+
+    tipos = Table.TransformColumnTypes(data, {
+                                             {"Income", type number},
+                                             {"Cust_Satisfaction_Score", type number}
+                                             })
+
+
+in
+    tipos

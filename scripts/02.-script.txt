@@ -1,0 +1,15 @@
+let
+    folder = "C:\Users\USER\Desktop\CURSOS\BOOTCAMP\B_PBI_202409\data/",
+    archivo = "CREDIT_CARD.xlsx",
+
+    ruta = folder & archivo,
+
+    fuente = Excel.Workbook(File.Contents(ruta)),
+
+    data = fuente{[Item = "2023_Q2", Kind= "Sheet"]}[Data],
+
+    encabezados = Table.PromoteHeaders(data)
+
+
+in
+    encabezados
